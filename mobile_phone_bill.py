@@ -6,16 +6,16 @@ print('***Mobile Phone Service Billing Program***')
 
 # Part 1: Display the Packages 
 print('Below are the three available packages. ')
-print(f"Package A\nMonthly Charge: $39.99\nIncluded Minutes: 450\nAdditional Minutes: $0.45 per minute")
-print(f"Package B\nMonthly Charge: $59.99\nIncluded Minutes: 900\nAdditional Minutes: $0.40 per minute")
-print(f"Package C\nMonthly Charge: $69.99\nIncluded Minutes: unlimited\nNo additional minute charge")
+print(f"~Package A~\nMonthly Charge: $39.99\nIncluded Minutes: 450\nAdditional Minutes: $0.45 per minute")
+print(f"~Package B~\nMonthly Charge: $59.99\nIncluded Minutes: 900\nAdditional Minutes: $0.40 per minute")
+print(f"~Package C~\nMonthly Charge: $69.99\nIncluded Minutes: unlimited\nNo additional minute charge")
 
 # Part 2: User Input 
 selection= str(input('Enter your selected package: '))
 minutes_used= int(input('Enter the number of minutes you used during the month: '))
 
-print('The package you selected is: {selection}')
-print('The number of minutes you used is: {minutes_used}')
+print(f'The package you selected is: {selection}')
+print(f'The number of minutes you used is: {minutes_used}')
 if selection== 'A' :
     monthly_charge= 39.99
     additional= 0.45
@@ -28,9 +28,11 @@ if selection== 'A' :
          total_bill= monthly_charge
          additional_minutes= 0
          additional_charge= 0
-print(f'Monthly Package Charge: ${monthly_charge}')
-
-if selection== 'B' :
+    print(f'Monthly Package Charge: ${monthly_charge}')
+    print(f'Number of Additional Minutes: {additional_minutes}')
+    print(f'Additional Minute Charge: ${additional_charge:.2f}')
+    print(f'Total Amount Due: ${total_bill:.2f}')
+elif selection== 'B' :
     monthly_charge= 59.99
     included_minutes= 900
     additional= 0.40
@@ -38,24 +40,20 @@ if selection== 'B' :
              additional_minutes= minutes_used - included_minutes
              additional_charge= additional_minutes * additional
              total_bill= monthly_charge + additional_charge
-        elif minutes_used <= 900:
+    elif minutes_used <= 900:
              total_bill= monthly_charge
              additional_minutes= 0
              additional_charge= 0
-
-if selection== 'C' :
+    print(f'Monthly Package Charge: ${monthly_charge: }')
+    print(f'Number of Additional Minutes: {additional_minutes}')
+    print(f'Additional Minute Charge: ${additional_charge:.2f}')
+    print(f'Total Amount Due: ${total_bill:.2f}')
+elif selection== 'C' :
     monthly_charge= 69.99
     total_bill= monthly_charge
     print(f'Monthly Package Charge: ${monthly_charge}')
     print('This package includes unlimited minutes.')
-
-if selection != 'A', 'B', or 'C':
+    print(f'Total Amount Due: ${total_bill:.2f}')
+elif selection != 'A' or 'B' or 'C':
     print('INVALID PACKAGE')
-
-# Part 4: Calculate Package A Bill 
-if selection== 'A'and minutes_used <= 450 :
-    total_bill= 39.99
-els
-        additional_minutes= minutes_used - included_minutes
-        additional_charge= additional_minutes * additional
-        total_bill= 39.99 + additional_charge
+    selection= str(input('Enter your correctly selected package: '))
